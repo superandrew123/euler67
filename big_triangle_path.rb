@@ -1,4 +1,4 @@
-class TriangleMaximizer
+class TriPathSolution
 
   attr_accessor :triangle
 
@@ -7,6 +7,8 @@ class TriangleMaximizer
   end
 
 end
+
+
 class TriReader
 
   def self.read
