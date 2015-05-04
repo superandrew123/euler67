@@ -5,24 +5,30 @@ class TriPathSolution
   def initialize
     @triangle = TriReader.read
     @result = 0
-    solve
   end
 
-  def solve
+  def solve_wrong
+    # Returns the wrong sum. This navigates the triangle going from top to bottom
+    # picking the largest number available each time but does not accomodate for the
+    # the option that bigger numbers may be below smaller ones.
     position = 0
-    @triangle.each_with_index do |row, i|
+    @triangle.each do |row, i|
       if i == 0
         @result = row[position]
-      elsif row[position] > row[position +1]
+      elsif row[position] > row[position + 1]
         @result += row[position]
       else
         @result += row[position + 1]
         position += 1
       end
     end
-    result
+    puts result
   end
 
+  def solve
+    # Starting from the bottom, this method will move up the triangle coming up with
+    # maximum values at each step. The top number will eventually the optimal sum.
+  end
 end
 
 
